@@ -15,7 +15,7 @@ import java.util.Date
 class CustomizedResponseEntityExceptionHandler : ResponseEntityExceptionHandler() {
 
     @ExceptionHandler(Exception::class)
-    fun handlerAlExceptions(ex: Exception, request: WebRequest):
+    fun handlerAllExceptions(ex: Exception, request: WebRequest):
             ResponseEntity<ExceptionsResponse> {
         val exceptionsResponse = ExceptionsResponse(
             Date(),
@@ -23,5 +23,16 @@ class CustomizedResponseEntityExceptionHandler : ResponseEntityExceptionHandler(
             request.getDescription(false)
         )
         return ResponseEntity<ExceptionsResponse>(exceptionsResponse, HttpStatus.INTERNAL_SERVER_ERROR)
+    }
+
+    @ExceptionHandler(UnsupportedMathOperationException::class)
+    fun handlerBadRequestExceptions(ex: Exception, request: WebRequest):
+            ResponseEntity<ExceptionsResponse> {
+        val exceptionsResponse = ExceptionsResponse(
+            Date(),
+            ex.message,
+            request.getDescription(false)
+        )
+        return ResponseEntity<ExceptionsResponse>(exceptionsResponse, HttpStatus.BAD_REQUEST)
     }
 }
