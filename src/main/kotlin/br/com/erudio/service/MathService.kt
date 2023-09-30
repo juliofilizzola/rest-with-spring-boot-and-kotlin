@@ -1,5 +1,6 @@
-package br.com.erudio
+package br.com.erudio.service
 
+import br.com.erudio.convert.ConvertNumber
 import br.com.erudio.exceptions.UnsupportedMathOperationException
 import org.springframework.stereotype.Service
 import kotlin.math.sqrt
@@ -13,11 +14,11 @@ class MathService {
      @return double
     */
     fun sum(numberOne: String, numberTwo: String): Double {
-        if (!MathService().isNumeric(numberOne) || !MathService().isNumeric(numberTwo)) {
+        if (!ConvertNumber().isNumeric(numberOne) || !ConvertNumber().isNumeric(numberTwo)) {
             throw UnsupportedMathOperationException("Please set a number")
         }
 
-        return convertToDouble(numberOne) + convertToDouble(numberTwo)
+        return ConvertNumber().convertToDouble(numberOne) + ConvertNumber().convertToDouble(numberTwo)
     }
 
     /**
@@ -27,11 +28,11 @@ class MathService {
     @return double
      */
     fun sub(numberOne: String, numberTwo: String): Double {
-        if (!MathService().isNumeric(numberOne) || !MathService().isNumeric(numberTwo)) {
+        if (!ConvertNumber().isNumeric(numberOne) || !ConvertNumber().isNumeric(numberTwo)) {
             throw UnsupportedMathOperationException("Please set a number")
         }
 
-        return convertToDouble(numberOne) - convertToDouble(numberTwo)
+        return ConvertNumber().convertToDouble(numberOne) - ConvertNumber().convertToDouble(numberTwo)
     }
 
     /**
@@ -41,11 +42,11 @@ class MathService {
     @return double
      */
     fun multiplication(numberOne: String, numberTwo: String): Double {
-        if (!MathService().isNumeric(numberOne) || !MathService().isNumeric(numberTwo)) {
+        if (!ConvertNumber().isNumeric(numberOne) || !ConvertNumber().isNumeric(numberTwo)) {
             throw UnsupportedMathOperationException("Please set a number")
         }
 
-        return convertToDouble(numberOne) * convertToDouble(numberTwo)
+        return ConvertNumber().convertToDouble(numberOne) * ConvertNumber().convertToDouble(numberTwo)
     }
 
     /**
@@ -55,11 +56,11 @@ class MathService {
     @return double
      */
     fun division(numberOne: String, numberTwo: String): Double {
-        if (!MathService().isNumeric(numberOne) || !MathService().isNumeric(numberTwo)) {
+        if (!ConvertNumber().isNumeric(numberOne) || !ConvertNumber().isNumeric(numberTwo)) {
             throw UnsupportedMathOperationException("Please set a number")
         }
 
-        return convertToDouble(numberOne) / convertToDouble(numberTwo)
+        return ConvertNumber().convertToDouble(numberOne) / ConvertNumber().convertToDouble(numberTwo)
     }
 
     /**
@@ -69,11 +70,11 @@ class MathService {
     @return double
      */
     fun rest(numberOne: String, numberTwo: String): Double {
-        if (!MathService().isNumeric(numberOne) || !MathService().isNumeric(numberTwo)) {
+        if (!ConvertNumber().isNumeric(numberOne) || !ConvertNumber().isNumeric(numberTwo)) {
             throw UnsupportedMathOperationException("Please set a number")
         }
 
-        return convertToDouble(numberOne) + convertToDouble(numberTwo) / 2
+        return ConvertNumber().convertToDouble(numberOne) + ConvertNumber().convertToDouble(numberTwo) / 2
     }
 
     /**
@@ -82,22 +83,12 @@ class MathService {
     @return double
      */
     fun squareRoot(number: String): Double {
-        if (!MathService().isNumeric(number)) {
+        if (!ConvertNumber().isNumeric(number)) {
             throw UnsupportedMathOperationException("Please set a number")
         }
 
-        return sqrt(convertToDouble(number))
+        return sqrt(ConvertNumber().convertToDouble(number))
     }
 
-    private fun convertToDouble(strNumber: String?): Double {
-        if (strNumber.isNullOrBlank()) return 0.0
-        val number = strNumber.replace(",".toRegex(), ".")
-        return if (isNumeric(number)) number.toDouble() else 0.0
-    }
 
-    private fun isNumeric(strNumber: String?): Boolean {
-        if (strNumber.isNullOrBlank()) return false
-        val number = strNumber.replace(",".toRegex(), ".")
-        return number.matches("""[-+]?[0-9]*\.?[0-9]+""".toRegex())
-    }
 }
