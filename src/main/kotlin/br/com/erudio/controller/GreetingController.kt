@@ -1,6 +1,6 @@
 package br.com.erudio.controller
 
-import br.com.erudio.Greeting
+import br.com.erudio.model.Greeting
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import java.util.concurrent.atomic.AtomicLong
