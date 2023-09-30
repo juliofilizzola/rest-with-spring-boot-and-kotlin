@@ -3,7 +3,7 @@ package br.com.erudio.convert
 import org.springframework.stereotype.Component
 
 @Component
-class ConvertNumber {
+object ConvertNumber {
 
     /**
     @param strNumber: value numeric
