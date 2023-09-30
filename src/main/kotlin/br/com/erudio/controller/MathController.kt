@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class MathController {
+    private val mathService: MathService = MathService()
     @RequestMapping(value = ["/sum/{numberOne}/{numberTwo}"])
     fun sum(
         @PathVariable(value = "numberOne") numberOne: String,
         @PathVariable(value = "numberTwo") numberTwo: String
     ): Double {
-        return MathService().sum(numberOne, numberTwo)
+        return mathService.sum(numberOne, numberTwo)
     }
 
     @RequestMapping(value = ["/sub/{numberOne}/{numberTwo}"])
@@ -20,7 +21,7 @@ class MathController {
         @PathVariable(value = "numberOne") numberOne: String,
         @PathVariable(value = "numberTwo") numberTwo: String
     ): Double {
-        return MathService().sub(numberOne, numberTwo)
+        return mathService.sub(numberOne, numberTwo)
     }
 
     @RequestMapping(value = ["/multiplication/{numberOne}/{numberTwo}"])
@@ -28,7 +29,7 @@ class MathController {
         @PathVariable(value = "numberOne") numberOne: String,
         @PathVariable(value = "numberTwo") numberTwo: String
     ): Double {
-        return MathService().multiplication(numberOne, numberTwo)
+        return mathService.multiplication(numberOne, numberTwo)
     }
 
 
@@ -37,7 +38,7 @@ class MathController {
         @PathVariable(value = "numberOne") numberOne: String,
         @PathVariable(value = "numberTwo") numberTwo: String
     ): Double {
-        return MathService().division(numberOne, numberTwo)
+        return mathService.division(numberOne, numberTwo)
     }
 
     @RequestMapping(value = ["/rest/{numberOne}/{numberTwo}"])
@@ -45,14 +46,14 @@ class MathController {
         @PathVariable(value = "numberOne") numberOne: String,
         @PathVariable(value = "numberTwo") numberTwo: String
     ): Double {
-        return MathService().rest(numberOne, numberTwo)
+        return mathService.rest(numberOne, numberTwo)
     }
 
     @RequestMapping(value = ["/squareRoot/{number}"])
     fun squareRoot(
         @PathVariable(value = "number") number: String
     ): Double {
-        return MathService().squareRoot(number)
+        return mathService.squareRoot(number)
     }
 
 }
