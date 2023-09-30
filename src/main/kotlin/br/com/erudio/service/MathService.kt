@@ -14,11 +14,11 @@ class MathService {
      @return double
     */
     fun sum(numberOne: String, numberTwo: String): Double {
-        if (!ConvertNumber().isNumeric(numberOne) || !ConvertNumber().isNumeric(numberTwo)) {
+        if (!ConvertNumber.isNumeric(numberOne) || !ConvertNumber.isNumeric(numberTwo)) {
             throw UnsupportedMathOperationException("Please set a number")
         }
 
-        return ConvertNumber().convertToDouble(numberOne) + ConvertNumber().convertToDouble(numberTwo)
+        return ConvertNumber.convertToDouble(numberOne) + ConvertNumber.convertToDouble(numberTwo)
     }
 
     /**
@@ -28,11 +28,11 @@ class MathService {
     @return double
      */
     fun sub(numberOne: String, numberTwo: String): Double {
-        if (!ConvertNumber().isNumeric(numberOne) || !ConvertNumber().isNumeric(numberTwo)) {
+        if (!ConvertNumber.isNumeric(numberOne) || !ConvertNumber.isNumeric(numberTwo)) {
             throw UnsupportedMathOperationException("Please set a number")
         }
 
-        return ConvertNumber().convertToDouble(numberOne) - ConvertNumber().convertToDouble(numberTwo)
+        return ConvertNumber.convertToDouble(numberOne) - ConvertNumber.convertToDouble(numberTwo)
     }
 
     /**
@@ -42,11 +42,11 @@ class MathService {
     @return double
      */
     fun multiplication(numberOne: String, numberTwo: String): Double {
-        if (!ConvertNumber().isNumeric(numberOne) || !ConvertNumber().isNumeric(numberTwo)) {
+        if (!ConvertNumber.isNumeric(numberOne) || !ConvertNumber.isNumeric(numberTwo)) {
             throw UnsupportedMathOperationException("Please set a number")
         }
 
-        return ConvertNumber().convertToDouble(numberOne) * ConvertNumber().convertToDouble(numberTwo)
+        return ConvertNumber.convertToDouble(numberOne) * ConvertNumber.convertToDouble(numberTwo)
     }
 
     /**
@@ -56,11 +56,11 @@ class MathService {
     @return double
      */
     fun division(numberOne: String, numberTwo: String): Double {
-        if (!ConvertNumber().isNumeric(numberOne) || !ConvertNumber().isNumeric(numberTwo)) {
+        if (!ConvertNumber.isNumeric(numberOne) || !ConvertNumber.isNumeric(numberTwo)) {
             throw UnsupportedMathOperationException("Please set a number")
         }
 
-        return ConvertNumber().convertToDouble(numberOne) / ConvertNumber().convertToDouble(numberTwo)
+        return ConvertNumber.convertToDouble(numberOne) / ConvertNumber.convertToDouble(numberTwo)
     }
 
     /**
@@ -70,11 +70,11 @@ class MathService {
     @return double
      */
     fun rest(numberOne: String, numberTwo: String): Double {
-        if (!ConvertNumber().isNumeric(numberOne) || !ConvertNumber().isNumeric(numberTwo)) {
+        if (!ConvertNumber.isNumeric(numberOne) || !ConvertNumber.isNumeric(numberTwo)) {
             throw UnsupportedMathOperationException("Please set a number")
         }
 
-        return ConvertNumber().convertToDouble(numberOne) + ConvertNumber().convertToDouble(numberTwo) / 2
+        return ConvertNumber.convertToDouble(numberOne) + ConvertNumber.convertToDouble(numberTwo) / 2
     }
 
     /**
@@ -83,11 +83,11 @@ class MathService {
     @return double
      */
     fun squareRoot(number: String): Double {
-        if (!ConvertNumber().isNumeric(number)) {
+        if (!ConvertNumber.isNumeric(number)) {
             throw UnsupportedMathOperationException("Please set a number")
         }
 
-        return sqrt(ConvertNumber().convertToDouble(number))
+        return sqrt(ConvertNumber.convertToDouble(number))
     }
 
 
